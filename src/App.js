@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import './App.scss';
+import './reset.css';
+import { gsap } from 'gsap';
+import Loader from './components/Loader/Loader';
 
 function App() {
+  useEffect(() => {
+    gsap.to('.form-control', {
+      y: -100,
+      duration: 5,
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='container'>
+        <Loader />
+      </div>
+    </>
   );
 }
 
